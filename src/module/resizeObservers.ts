@@ -26,7 +26,7 @@ const characterSheetResizeObserver = new ResizeObserver((entries) => {
 	for (const entry of entries) {
 		if (!entry.target.id.startsWith("CharacterSheetPF2e")) continue;
 		const html = $(entry.target) as JQuery<HTMLElement>;
-		if (entry.contentRect.width < 745 && !html.hasClass("mobile")) {
+		if (entry.contentRect.width < 900 && !html.hasClass("mobile")) {
 			log(false, "sidebar found", html.find("aside").length);
 
 			moveSidebarToTab(html);
@@ -34,7 +34,7 @@ const characterSheetResizeObserver = new ResizeObserver((entries) => {
 			html.addClass("mobile");
 			log(false, "mobile", entry);
 			log(false, "sidebar found", html.find("aside").length);
-		} else if (entry.contentRect.width >= 745 && html.hasClass("mobile")) {
+		} else if (entry.contentRect.width >= 900 && html.hasClass("mobile")) {
 			log(false, "sidebar found off", html.find("aside").length);
 			html.removeClass("mobile");
 			const sidebar = html.find(".tab.sidebar aside");
